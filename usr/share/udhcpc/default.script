@@ -1,0 +1,9 @@
+#!/bin/ash
+case "$1" in
+	"bound" )
+		echo "domain $domain" > /etc/resolv.conf
+		echo "nameserver $dns" >> /etc/resolv.conf
+		ifconfig $interface $ip netmask $subnet
+		route add default gw $router ;;
+esac
+
